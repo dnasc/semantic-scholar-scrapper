@@ -364,25 +364,8 @@ class FirstPaperDifferentError(Exception):
 
 
 def main():
-    ss_scrapper = SemanticScholarScrapper(headless=True)
-    jsons_output_path = '/home/daniel/PycharmProjects/SemanticScholar/output2'
-    papers_dir = '/home/daniel/Documents/LNCC/Doutorado/dissertation-paper-project/reference-papers/Evaluation'
-    paper_list = [os.path.splitext(paper_fn)[0].strip() for paper_fn in os.listdir(papers_dir)]
-    papers_dict = ss_scrapper.scrap_paper_list_by_title(paper_list)
-
-    try:
-        os.mkdir(jsons_output_path)
-    except FileExistsError:
-        pass
-
-    for paper_id in papers_dict:
-        try:
-            output_file_name = ss_scrapper.create_json_file_name(papers_dict[paper_id], jsons_output_path)
-            with open(output_file_name, 'w') as out_file:
-                json.dump(papers_dict[paper_id], out_file, sort_keys=True, indent=4)
-        except KeyError:
-            # If paper_dict is a empty dictionary
-            pass
+    # TODO
+    pass
 
 
 if __name__ == '__main__':
